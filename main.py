@@ -2,9 +2,11 @@ import pygame
 import sys
 from config import WIDTH, HEIGHT, WHITE, BLACK, font, button_font
 from castle_game import start_game  # Import the start_game function from castle_game.py
+from visualization_menu import show_visualization_dashboard  # Import the visualization dashboard
 
 
-def draw_menu(screen, survival_button, sandbox_button, two_player_button,tutorial_button,  quit_button):
+def draw_menu(screen, survival_button, sandbox_button, two_player_button, tutorial_button, visualization_button,
+              quit_button):
     screen.fill(WHITE)
 
     # Title
@@ -16,18 +18,21 @@ def draw_menu(screen, survival_button, sandbox_button, two_player_button,tutoria
     pygame.draw.rect(screen, BLACK, sandbox_button)
     pygame.draw.rect(screen, BLACK, two_player_button)
     pygame.draw.rect(screen, BLACK, tutorial_button)
+    pygame.draw.rect(screen, BLACK, visualization_button)  # New visualization button
     pygame.draw.rect(screen, BLACK, quit_button)
 
     survival_text = button_font.render("Survival Game", True, WHITE)
     sandbox_text = button_font.render("Single Player", True, WHITE)
     two_player_text = button_font.render("Two Players", True, WHITE)
     tutorial_button_text = button_font.render("Tutorial", True, WHITE)
+    visualization_text = button_font.render("Visualization Data", True, WHITE)  # New button text
     quit_text = button_font.render("Quit", True, WHITE)
 
     screen.blit(survival_text, (survival_button.x + 15, survival_button.y + 10))
     screen.blit(sandbox_text, (sandbox_button.x + 15, sandbox_button.y + 10))
     screen.blit(two_player_text, (two_player_button.x + 15, two_player_button.y + 10))
     screen.blit(tutorial_button_text, (tutorial_button.x + 15, tutorial_button.y + 10))
+    screen.blit(visualization_text, (visualization_button.x + 15, visualization_button.y + 10))  # New text
     screen.blit(quit_text, (quit_button.x + 15, quit_button.y + 10))
 
     pygame.display.flip()
@@ -138,12 +143,15 @@ def main_menu():
                                     button_height)
     tutorial_button = pygame.Rect(WIDTH // 2 - 75, button_y_start + 3 * (button_height + button_spacing), 150,
                                   button_height)
-    quit_button = pygame.Rect(WIDTH // 2 - 75, button_y_start + 4 * (button_height + button_spacing), 150,
-                              button_height)
+    visualization_button = pygame.Rect(WIDTH // 2 - 75, button_y_start + 4 * (button_height + button_spacing), 150,
+                                       button_height)  # New visualization button
+    quit_button = pygame.Rect(WIDTH // 2 - 75, button_y_start + 5 * (button_height + button_spacing), 150,
+                              button_height)  # Moved down one position
 
     running = True
     while running:
-        draw_menu(screen, survival_button, sandbox_button, two_player_button,tutorial_button, quit_button)
+        draw_menu(screen, survival_button, sandbox_button, two_player_button, tutorial_button,
+                  visualization_button, quit_button)  # Added visualization button
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -169,6 +177,13 @@ def main_menu():
 
                 elif survival_button.collidepoint(event.pos):
                     print("Survival mode is not implemented yet.")
+
+                elif tutorial_button.collidepoint(event.pos):
+                    print("Tutorial is not implemented yet.")
+
+                elif visualization_button.collidepoint(event.pos):
+                    # Show visualization dashboard
+                    show_visualization_dashboard(screen)
 
                 elif quit_button.collidepoint(event.pos):
                     running = False  # Exit the game
