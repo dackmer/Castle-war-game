@@ -31,7 +31,7 @@ Castle War Game is a turn-based strategy game where players manage resources, bu
 
 ##  Demo Video
 
-Watch our gameplay demo here:  
+Watch our gameplay demo here:
 [📺 YouTube - castle war game](https://youtu.be/1ZOEuT0rAVg)
 
 ---
@@ -41,4 +41,4 @@ Watch our gameplay demo here:
 My GitHub is here:
 [Castle-war-game on GitHub](https://github.com/dackmer/Castle-war-game.git)
 
---
+---
