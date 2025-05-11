@@ -28,4 +28,17 @@ Castle War Game is a turn-based strategy game where players manage resources, bu
 
 ![Castle War Game UML Class Diagram](castle_war_uml.png)
 
-*Note: The UML diagram illustrates the relationships between core game components, including the Game class, Player classes, Card system, and Statistics visualization system.*
+
+##  Demo Video
+
+Watch our gameplay demo here:  
+[📺 YouTube - castle war game](https://youtu.be/1ZOEuT0rAVg)
+
+---
+
+##  GitHub
+
+My GitHub is here:
+[Castle-war-game on GitHub](https://github.com/dackmer/Castle-war-game.git)
+
+--
